@@ -2,12 +2,14 @@ from pysentimiento import create_analyzer
 from os import system
 import json
 
-sentiment_analyzer = create_analyzer(task="sentiment", lang="es")
+leng = input('Select language(en/es): ')
+
+sentiment_analyzer = create_analyzer(task="sentiment", lang=leng)
 
 # emotion_analyzer = create_analyzer(task="emotion", lang="es")
 
 # hate_speech_analyzer = create_analyzer(task="hate_speech", lang="es")
-url = input('Ingrese url del video: ')
+url = input('Video URL: ')
 system(f'youtube-comment-downloader --url {url} --output comments.txt')
 
 data = open('comments.txt','r')
